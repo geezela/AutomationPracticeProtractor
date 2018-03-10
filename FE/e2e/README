@@ -1,0 +1,7 @@
+#install (make sure that you are in e2e test folder)
+npm install
+
+#to run tests:
+npm runwebdriver-update
+next:
+npm run e2e
