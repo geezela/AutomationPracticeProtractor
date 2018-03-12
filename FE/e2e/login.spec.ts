@@ -1,13 +1,15 @@
-import {browser, by, element, protractor} from "protractor";
-import {Login} from "./po/loginPage.po";
-import {Header} from "./po/header.po";
+import { browser, by, element, protractor } from "protractor";
+import { Login } from "./po/loginPage.po";
+import { Header } from "./po/header.po";
 
 describe('Login page:', () => {
 
-let login: Login;
-let header: Header;
+    let login: Login;
+    let header: Header;
+    const CURRENT_EMAIL = "automation@testing.pl",
+        CURRENT_PASSWORD = "abcd1234";
 
-    describe('user should be able to log in, ', () => {
+    describe(`user should be able to log in, `, () => {
 
         beforeAll(() => {
             login = new Login();
@@ -17,17 +19,12 @@ let header: Header;
             header.clickOnSignInLink();
         });
 
-        it('user should be able to put login: ', () => {
-            login.typeLoginEmail("automation@testing.pl");
-        });
-
-        it('user should be able to put password: ', () => {
-            login.typeLoginPassword("abcd1234");
-        });
-
-        it('user should be able to click button log in: ', () => {
+        it(`user should be able login using credentials:${CURRENT_EMAIL}, ${CURRENT_PASSWORD} `, () => {
+            login.typeLoginEmail(CURRENT_EMAIL);
+            login.typeLoginPassword(CURRENT_PASSWORD);
             login.clickOnSignInButton();
-        });        
+
         });
+    });
 });
 
